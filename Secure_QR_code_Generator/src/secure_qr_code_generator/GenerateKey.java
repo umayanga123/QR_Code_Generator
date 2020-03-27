@@ -31,11 +31,11 @@ public class GenerateKey {
 
         Base64.Encoder encoder = Base64.getEncoder();
 
-        FileOutputStream out = new FileOutputStream(tagName + ".key");
+        FileOutputStream out = new FileOutputStream("key/"+ tagName + ".key");
         out.write(pvt.getEncoded());
         out.close();
 
-        FileWriter public_key = new FileWriter(tagName + ".pub");
+        FileWriter public_key = new FileWriter("key/" +tagName + ".pub");
         public_key.write("-----BEGIN RSA PUBLIC KEY-----\n");
         public_key.write(encoder.encodeToString(pub.getEncoded()));
         public_key.write("\n-----END RSA PUBLIC KEY-----\n");

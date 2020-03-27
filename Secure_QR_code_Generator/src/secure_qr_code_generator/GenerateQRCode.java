@@ -14,10 +14,10 @@ import java.io.InputStreamReader;
  * @author abans
  */
 public class GenerateQRCode {
-    public static boolean generateQRCode(String text) throws IOException {
+    public static boolean generateQRCode(String text ,String tag) throws IOException {
         
         String s = null;
-        Process p = Runtime.getRuntime().exec("python qr_script.py "+text);
+        Process p = Runtime.getRuntime().exec("python qr_script.py "+text+" "+tag);
 
         BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
 

@@ -28,7 +28,7 @@ public class SignData {
     public static String signData(String data, String keyTag) throws NoSuchAlgorithmException, IOException, InvalidKeySpecException, InvalidKeyException, SignatureException {
 
         /* Read all bytes from the private key file */
-        Path path = Paths.get(keyTag + ".key");
+        Path path = Paths.get("key/"+keyTag + ".key");
         byte[] bytes = Files.readAllBytes(path);
 
         /* Generate private key. */
