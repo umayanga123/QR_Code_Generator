@@ -30,12 +30,13 @@ public class QRInputFrame extends javax.swing.JFrame {
      * Creates new form QRInputFrame
      */
     public QRInputFrame() {
-        imageIcon = new ImageIcon("ic_launcher.jpg");
         setLocationRelativeTo(null);
+        imageIcon = new ImageIcon("ic_launcher.jpg");
         setTitle("SVSM project");
         setIconImage(Toolkit.getDefaultToolkit().createImage("icon.png"));
+        setResizable(false);
         initComponents();
-        
+       
     }
 
     /**

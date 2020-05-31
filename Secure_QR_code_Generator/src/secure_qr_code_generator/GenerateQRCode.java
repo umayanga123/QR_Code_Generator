@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- *
+ * 
  * @author abans
  */
 public class GenerateQRCode {

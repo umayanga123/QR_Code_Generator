@@ -24,7 +24,7 @@ public class GenerateKey {
 
     public static void GenerateKey(String tagName) throws NoSuchAlgorithmException, FileNotFoundException, IOException {
         KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-        kpg.initialize(2048);
+        kpg.initialize(512);
         KeyPair kp = kpg.generateKeyPair();
         Key pub = kp.getPublic();
         Key pvt = kp.getPrivate();

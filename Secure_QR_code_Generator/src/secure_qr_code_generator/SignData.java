@@ -36,7 +36,7 @@ public class SignData {
         KeyFactory kf = KeyFactory.getInstance("RSA");
         PrivateKey pvt1 = kf.generatePrivate(ks);
 
-        Signature sign = Signature.getInstance("SHA256withRSA");
+        Signature sign = Signature.getInstance("SHA1withRSA");
         sign.initSign(pvt1);
         sign.update(data.getBytes());
         byte[] sign1 = sign.sign();
