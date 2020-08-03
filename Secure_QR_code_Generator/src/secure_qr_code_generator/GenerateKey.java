@@ -9,7 +9,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.security.Key;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -31,15 +30,15 @@ public class GenerateKey {
 
         Base64.Encoder encoder = Base64.getEncoder();
 
-        FileOutputStream out = new FileOutputStream("key/"+ tagName + ".key");
-        out.write(pvt.getEncoded());
-        out.close();
+        try (FileOutputStream out = new FileOutputStream("key/"+ tagName + ".key")) {
+            out.write(pvt.getEncoded());
+        }
 
-        FileWriter public_key = new FileWriter("key/" +tagName + ".pub");
-        public_key.write("-----BEGIN RSA PUBLIC KEY-----\n");
-        public_key.write(encoder.encodeToString(pub.getEncoded()));
-        public_key.write("\n-----END RSA PUBLIC KEY-----\n");
-        public_key.close();
+        try (FileWriter public_key = new FileWriter("key/" +tagName + ".pub")) {
+            public_key.write("-----BEGIN RSA PUBLIC KEY-----\n");
+            public_key.write(encoder.encodeToString(pub.getEncoded()));
+            public_key.write("\n-----END RSA PUBLIC KEY-----\n");
+        }
 
     }
 }

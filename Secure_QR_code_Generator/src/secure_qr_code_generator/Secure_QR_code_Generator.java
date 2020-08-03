@@ -5,6 +5,8 @@
  */
 package secure_qr_code_generator;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author abans
@@ -17,6 +19,10 @@ public class Secure_QR_code_Generator {
     public static void main(String[] args) {
         
         QRInputFrame inputPanel = new QRInputFrame();
+        inputPanel.setTitle("SVSM Project");
+        inputPanel.setIconImage(Toolkit.getDefaultToolkit().createImage("icon.png"));
+        inputPanel.setResizable(false);
+        inputPanel.setLocationRelativeTo(null);
         inputPanel.setVisible(true);
     }
 }

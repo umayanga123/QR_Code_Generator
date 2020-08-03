@@ -25,7 +25,7 @@ import java.util.Base64;
  */
 public class SignData {
 
-    public static String signData(String data, String keyTag) throws NoSuchAlgorithmException, IOException, InvalidKeySpecException, InvalidKeyException, SignatureException {
+    public static String signData(String data, String keyTag ,boolean isSelected) throws NoSuchAlgorithmException, IOException, InvalidKeySpecException, InvalidKeyException, SignatureException {
 
         /* Read all bytes from the private key file */
         Path path = Paths.get("key/"+keyTag + ".key");
@@ -43,7 +43,11 @@ public class SignData {
 
         Base64.Encoder encoder = Base64.getEncoder();
         String encodeToString = encoder.encodeToString(sign1);
-        return keyTag + "," + data + "," + encodeToString;
+        
+        if(isSelected){
+            return keyTag + "," + data + "," + encodeToString;
+        }
+        return keyTag + "," + data;
 
     }
 
